@@ -1,4 +1,4 @@
-#Escape-from-the-Shadows - proiect IMR
+Escape-from-the-Shadows - proiect IMR
 
 Echipa: 
 
