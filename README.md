@@ -1,14 +1,14 @@
-Escape-from-the-Shadows - proiect IMR
+#Escape-from-the-Shadows - proiect IMR
 
-Echipa: 
+##Echipa: 
 
-Bacaoanu Remus
+*Bacaoanu Remus
 
-Burca Theodor
+*Burca Theodor
 
-Cernat George Lucian
+*Cernat George Lucian
 
-Muraru Cosmin Alexandru
+*Muraru Cosmin Alexandru
 
 
 State of the art:https://docs.google.com/document/d/1ysYDn8BCYkhXICMMVC4dU5SEeswwE7hTc-Z8tnlw1qw/edit?usp=sharing
