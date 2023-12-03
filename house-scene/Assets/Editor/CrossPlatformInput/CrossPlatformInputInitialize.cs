@@ -88,7 +88,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
         private static BuildTargetGroup[] buildTargetGroups = new BuildTargetGroup[]
             {
                 BuildTargetGroup.Standalone,
-                BuildTargetGroup.WebPlayer,
+                BuildTargetGroup.WebGL, // Am înlocuit BuildTargetGroup.WebPlayer cu BuildTargetGroup.WebGL aici
                 BuildTargetGroup.Android,
                 BuildTargetGroup.iOS,
                 BuildTargetGroup.WP8,
@@ -101,9 +101,9 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 BuildTargetGroup.iOS,
                 BuildTargetGroup.WP8,
                 BuildTargetGroup.BlackBerry,
-				BuildTargetGroup.PSM, 
-				BuildTargetGroup.Tizen, 
-				BuildTargetGroup.WSA 
+                BuildTargetGroup.PSM,
+                BuildTargetGroup.Tizen,
+                BuildTargetGroup.WSA
             };
 
 
