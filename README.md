@@ -4,6 +4,7 @@
 * [Team](#team)
 * [Story](#story)
 * [Research](#research)    
+* [Progress](#progress)  
 
 ## Team  
 * Băcăoanu Remus (B2)  
@@ -29,6 +30,16 @@ https://docs.google.com/document/d/11B0Ko0HrHl-IjR3SF8KRO3pt3WxhZlOr_5ArVFyjAXc/
 
 Link video week 7: https://www.youtube.com/watch?v=ZGocZSvKPm8&ab_channel=CosminMuraru   
 
-Progres:  
 Pana in saptamana 7, am finalizat povestea jocului si am decis care vor fi puzzle-urile. De asemenea, am reusit sa aducem in scena asset-urile principale de care vom avea nevoie: casa, subsolul spitalulul, majoritatea obiectelelor care fac parte din decor si monstrii.   
 La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena finala din joc (unde trebuie sa ingroape inima pentru a dezlega blestemul).  
+
+
+## Progress  
+Pana in saptamana a 10-a, am reusit sa:  
+* am adaugat XR Interaction Manager in proiect  
+* am atasat mainile modelate personajului  
+* am creat, folosind AI, dialogul dintre jucator si fantoma copilului (toata povestea jocului)  
+* atunci cand jucatorul se apropie de Crawler (cand se atinge distanta minima), se activeaza jumpscare-ul Crawler-ului, si de asemenea se aude si un sunet creepy ("Peekaboo, I see you ... ")  
+* am adaugat sunete de fundal in joc: sunet de furtuna, tunete, vant puternic, scartait de usi, plansete etc..  
+* am realizat actiunea de grab a cheii ( obiectului rust_key)  
+* modificarea atributelor la incapere, cheie si raft din basement pentru a permite coliziunile si gravitatia.  
