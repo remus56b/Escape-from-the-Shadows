@@ -1,58 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class animationStateController : MonoBehaviour
+public class AnimationStateController : MonoBehaviour
 {
-    Animator animator;
+    private Animator animator;
     [SerializeField]
-    HandsManager handsManager; // Adaugă acest câmp pentru a face referire la HandsManager
+    private Transform handsManagerTransform;
+    [SerializeField]
+    private Transform crawlerTransform;
+    [SerializeField]
+    private float activationDistance = 5f;
+    [SerializeField]
+    private AudioSource audioSource; // Referință către componenta AudioSource asociată sunetului
 
     void Start()
     {
         animator = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        if (handsManager != null)
+        if (animator == null)
         {
-            bool isGrabbing = handsManager.IsGrabbing();
+            Debug.LogError("Animator component is missing!");
+        }
 
-            if (isGrabbing)
+        if (audioSource == null)
+        {
+            // Dacă componenta AudioSource este lipsă, încercă să o găsești pe acest obiect
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
             {
-                bool hasGrabbedKey = CheckIfPlayerGrabbedKey();
-
-                if (hasGrabbedKey)
-                {
-                    animator.SetBool("isJumping", true);
-                }
+                Debug.LogError("AudioSource component is missing!");
             }
         }
     }
 
-    private bool CheckIfPlayerGrabbedKey()
+    void Update()
     {
-        // Presupunem că avem un obiect numit "rust_key" în scena
-        GameObject key = GameObject.Find("rust_key");
-
-        if (key == null)
+        if (handsManagerTransform != null && crawlerTransform != null)
         {
-            // Dacă nu există un obiect numit "rust_key", returnează false
-            return false;
+            float distance = Vector3.Distance(handsManagerTransform.position, crawlerTransform.position);
+
+            if (distance < activationDistance)
+            {
+                animator.SetBool("isJumping", true);
+                
+            }
+            else
+            {
+                animator.SetBool("isJumping", false);
+                audioSource.Play();
+            }
         }
-
-        // Verifică dacă jucătorul a intrat în coliziune cu cheia
-        Collider keyCollider = key.GetComponent<Collider>();
-        Collider playerCollider = GetComponent<Collider>();
-
-        if (keyCollider.bounds.Intersects(playerCollider.bounds))
+        else
         {
-            // Dacă jucătorul a intrat în coliziune cu cheia, returnează true
-            return true;
+            Debug.LogError("Reference to HandsManager, crawler Transform, or AudioSource is missing!");
         }
-
-        // Dacă jucătorul nu a intrat în coliziune cu cheia, returnează false
-        return false;
     }
 }

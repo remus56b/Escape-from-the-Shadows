@@ -9,6 +9,7 @@ TagManager:
   - Balloon
   - Hedgehog
   - Crate
+  - rust_key
   layers:
   - Default
   - TransparentFX
