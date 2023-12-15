@@ -11,29 +11,23 @@ public class HandsManager : MonoBehaviour
 
     private Vector3 throwDirection;
     private float throwForce = 8.0f;
-    private float throwHeight = 1.0f; 
+    private float throwHeight = 1.0f;
+    private bool isGrabbing = false;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.G))
-        {
-            SetGrabbingTrigger(true);
-        }
-        else
-        {
-            SetGrabbingTrigger(false);
-        }
+        isGrabbing = Input.GetKey(KeyCode.G);
+        SetGrabbingTrigger(isGrabbing);
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
             CalculateThrowDirection();
         }
+    }
 
-        //if (Input.GetKeyUp(KeyCode.Y))
-        //{
-        //    CrateController crateController = GameObject.Find("Crate").GetComponent<CrateController>();
-        //    crateController.ThrowBall(throwDirection.normalized * throwForce);
-        //}
+    public bool IsGrabbing()
+    {
+        return isGrabbing;
     }
 
     private void CalculateThrowDirection()
