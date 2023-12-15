@@ -51,4 +51,5 @@ Pana in saptamana a 11-a:
 * am adaugat RigidBody, BoxCollider si GrabInteractable pentru majoritatea obiectelor, pentru a simula un mediu mai realist;  
 * am adaugat o parte din dialogul personajului cu vocea copilului;  
 * am adaugat animatii la cufar si inima copilului;
-* am inceput sa lucram la teleportare;    
+* am inceput sa lucram la teleportare;
+* am inceput sa lucram la componentele environment-ului si la felul cum player-ul interactioneaza cu el(permiterea coliziunii cu peretii);    
