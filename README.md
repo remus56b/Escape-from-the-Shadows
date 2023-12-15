@@ -35,11 +35,20 @@ La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena f
 
 
 ## Progress  
-Pana in saptamana a 10-a, am reusit sa:  
-* am adaugat XR Interaction Manager in proiect  
-* am atasat mainile modelate personajului  
-* am creat, folosind AI, dialogul dintre jucator si fantoma copilului (toata povestea jocului)  
-* atunci cand jucatorul se apropie de Crawler (cand se atinge distanta minima), se activeaza jumpscare-ul Crawler-ului, si de asemenea se aude si un sunet creepy ("Peekaboo, I see you ... ")  
-* am adaugat sunete de fundal in joc: sunet de furtuna, tunete, vant puternic, scartait de usi, plansete etc..  
-* am realizat actiunea de grab a cheii ( obiectului rust_key)  
-* modificarea atributelor la incapere, cheie si raft din basement pentru a permite coliziunile si gravitatia.  
+> Pana in saptamana a 10-a, am reusit sa:  
+> * am adaugat XR Interaction Manager in proiect  
+> * am atasat mainile modelate personajului  
+> * am creat, folosind AI, dialogul dintre jucator si fantoma copilului (toata povestea jocului)  
+> * atunci cand jucatorul se apropie de Crawler (cand se atinge distanta minima), se activeaza jumpscare-ul Crawler-ului, si de asemenea se aude si un sunet creepy ("Peekaboo, I see you ... ")  
+> * am adaugat sunete de fundal in joc: sunet de furtuna, tunete, vant puternic, scartait de usi, plansete etc..  
+> * am realizat actiunea de grab a cheii ( obiectului rust_key)  
+> * modificarea atributelor la incapere, cheie si raft din basement pentru a permite coliziunile si gravitatia.  
+
+
+Pana in saptamana a 11-a:  
+* am facut 'merge' la toate scenele intr-una: pana in aceasta saptamana am lucrat pe echipe la scene, iar acum scenele sunt gata, asa ca am combinat proiectele si le-am facut sa fie unul singur;  
+* am imbunatatit movement-ul player-ului: acum se misca mai rapid in joc (inainte avea viteza foarte mica si dura mult pentru a se deplasa);  
+* am adaugat RigidBody, BoxCollider si GrabInteractable pentru majoritatea obiectelor, pentru a simula un mediu mai realist;  
+* am adaugat o parte din dialogul personajului cu vocea copilului;  
+* am adaugat animatii la cufar si inima copilului;
+* am inceput sa lucram la teleportare;    
