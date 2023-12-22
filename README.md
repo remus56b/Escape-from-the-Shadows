@@ -55,10 +55,10 @@ La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena f
 > * am inceput sa lucram la componentele environment-ului si la felul cum player-ul interactioneaza cu el(permiterea coliziunii cu peretii);   
 
 
- Pana in saptamana a 12-a:   
- * am imbunatatit movement ul player-ului;   
- * am actualizat player-ului cu structura casei( mai sunt detalii de modificat );   
-* am lucrat la teleportare ( suntem in faza de testare );  
-* am adaugat scrisoarea care introduce playerul in poveste; de asemenea am introdus si logica interactiunii cu scrisoarea( cand se apropie de ea apare pe ecran );  
+ Pana in saptamana a 12-a:    
+* am imbunatatit movement-ul player-ului;  
+* am actualizat interactiunea player-ului cu structura casei (mai sunt detalii de modificat);  
+* am lucrat la teleportare (suntem in faza de testare);  
+* am adaugat scrisoarea care introduce playerul in poveste; de asemenea am introdus si logica interactiunii cu scrisoarea (cand se apropie de ea - cut-scene "Revelarea Scrisorii");  
 * am mai adaugat dialoguri;  
-* Sarbatori fericite!  
+* Sărbători binecuvântate si un an nou plin de bucurii!🌟🎁🎉  
