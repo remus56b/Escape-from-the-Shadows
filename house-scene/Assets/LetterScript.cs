@@ -13,6 +13,7 @@ public class InteractionController : MonoBehaviour
 
     void Update()
     {
+        imagineAfisata.SetActive(false);
         float distance = Vector3.Distance(leftHand.transform.position, letterObject.transform.position);
         if (distance < 1.0f)
         {
