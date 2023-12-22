@@ -56,8 +56,8 @@ Pana in saptamana a 11-a:
 
 
  Pana in saptamana a 12-a:   
-* am imbunatatit movement ul player-ului;   
-* am actualizat player-ului cu structura casei( mai sunt detalii de modificat );  
+ * am imbunatatit movement ul player-ului;   
+ * am actualizat player-ului cu structura casei( mai sunt detalii de modificat );   
 * am lucrat la teleportare ( suntem in faza de testare );  
 * am adaugat scrisoarea care introduce playerul in poveste; de asemenea am introdus si logica interactiunii cu scrisoarea( cand se apropie de ea apare pe ecran );  
 * am mai adaugat dialoguri;  
