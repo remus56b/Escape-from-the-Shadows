@@ -27,38 +27,44 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 directieDeplasare = Vector3.zero;
 
-        bool apasatInainte = Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S);
-        bool apasatInapoi = Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W);
-        bool apasatStanga = Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D);
-        bool apasatDreapta = Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A);
+        bool apasatInainte = Input.GetKey(KeyCode.W);
+        bool apasatInapoi = Input.GetKey(KeyCode.S);
+        bool apasatStanga = Input.GetKey(KeyCode.A);
+        bool apasatDreapta = Input.GetKey(KeyCode.D);
+
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
 
         if (apasatInainte)
         {
-            directieDeplasare += transform.forward; // Înainte
+            directieDeplasare += forward; // Înainte
         }
         else if (apasatInapoi)
         {
-            directieDeplasare -= transform.forward; // Înapoi
+            directieDeplasare -= forward; // Înapoi
         }
 
         if (apasatStanga)
         {
-            directieDeplasare -= transform.right; // Stânga
+            directieDeplasare -= right; // Stânga
         }
         else if (apasatDreapta)
         {
-            directieDeplasare += transform.right; // Dreapta
+            directieDeplasare += right; // Dreapta
         }
 
         if (directieDeplasare != Vector3.zero)
         {
-            directieDeplasare = directieDeplasare.normalized;
+            directieDeplasare.Normalize();
+            transform.Translate(directieDeplasare * viteza * Time.deltaTime, Space.World);
         }
-
-        transform.Translate(directieDeplasare * viteza * Time.deltaTime, Space.Self);
     }
-
-
 
     private void HandleGrabbing()
     {
