@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.49145257, g: 0.48944455, b: 0.49088758, a: 1}
+  m_IndirectSpecularColor: {r: 0.491453, g: 0.48944494, b: 0.49088803, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3851,10 +3851,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 825476049}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc24b5565876cdc41b3b11dd4482674d,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 825476054}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
@@ -3867,6 +3863,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 825476056}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc24b5565876cdc41b3b11dd4482674d,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 825476055}
   m_SourcePrefab: {fileID: 100100000, guid: bc24b5565876cdc41b3b11dd4482674d, type: 3}
 --- !u!1 &825476048 stripped
@@ -3875,22 +3875,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 825476046}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &825476049
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825476048}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -7918129362319027497, guid: bc24b5565876cdc41b3b11dd4482674d,
-    type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!54 &825476052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4113,6 +4097,27 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!95 &825476056
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825476048}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3afe40007144134a8af93ed4213a0b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &843883653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c4614d0cb3a39af44952504201062e08,
