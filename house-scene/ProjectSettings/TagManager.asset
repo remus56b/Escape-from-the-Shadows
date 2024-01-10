@@ -12,6 +12,9 @@ TagManager:
   - rust_key
   - destination
   - crawler
+  - door
+  - destination2
+  - door2
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Camera
   - 
   - 
   - 
