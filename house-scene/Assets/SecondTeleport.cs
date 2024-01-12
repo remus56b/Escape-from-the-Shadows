@@ -44,9 +44,12 @@ public class SecondTeleport : MonoBehaviour
             {
                 player.position = destination2.transform.position;
                 crawler.SetActive(false);
-
-                
-
+            }
+        }
+        else
+        { if (distance > 30f)
+            {
+                crawler.SetActive(false);
             }
         }
     }

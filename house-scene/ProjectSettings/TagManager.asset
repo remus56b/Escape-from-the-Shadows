@@ -18,6 +18,7 @@ TagManager:
   - destination3
   - door3
   - pp
+  - bed
   layers:
   - Default
   - TransparentFX

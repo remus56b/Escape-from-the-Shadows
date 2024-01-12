@@ -5,12 +5,12 @@ public class Key : MonoBehaviour
     public GameObject crawlerPrefab; // Referință către prefab-ul "crawler"
     public Transform leftHand; // Referință către transform-ul mâinii stângi
     public GameObject door;
-    private bool soundPlayed = false; 
+    public Transform bed;
+    private bool soundPlayed = false;
     public GameObject destination;
-    public bool soundPlayed2 = false;
+    private bool soundPlayed2 = false;
 
     public AudioClip audio1; // Primul fișier audio
-    public AudioClip audio2; 
     public AudioClip audio3; // Al treilea fișier audio
 
     private float delayTimer = 0f;
@@ -28,14 +28,11 @@ public class Key : MonoBehaviour
         float distance = Vector3.Distance(leftHand.position, transform.position);
         float distance2 = Vector3.Distance(leftHand.position, destination.transform.position);
 
-        if (distance2 < 7f) 
+        if (distance2 < 7f)
         {
             if (!soundPlayed2)
             {
-                AudioSource.PlayClipAtPoint(audio2, transform.position);
-                //play sound 3 after sound 2 is finished
-                AudioSource.PlayClipAtPoint(audio3, transform.position);
-
+                AudioSource.PlayClipAtPoint(audio3, leftHand.position);
                 soundPlayed2 = true;
             }
         }
@@ -58,7 +55,7 @@ public class Key : MonoBehaviour
                 if (!delayStarted)
                 {
                     delayStarted = true;
-                    delayTimer = Time.time + 5f;
+                    delayTimer = Time.time + 7f;
                 }
                 else if (Time.time >= delayTimer)
                 {

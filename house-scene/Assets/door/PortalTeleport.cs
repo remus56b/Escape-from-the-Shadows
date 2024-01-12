@@ -4,7 +4,6 @@ public class PortalTeleport : MonoBehaviour
 {
     public Transform teleportDestination;
     public Transform player;
-    public AudioClip teleportSound; // Sunetul pentru teleportare
     private GameObject doorObject;
     private Animation doorAnimation;
 
@@ -37,10 +36,7 @@ public class PortalTeleport : MonoBehaviour
             {
                 player.position = rustKeyObject.transform.position;
 
-                // Folosește Camera.main pentru a obține camera principală și adaugă un AudioSource
-                AudioSource.PlayClipAtPoint(teleportSound, player.position);
-
-                // Activează animația ușii
+                
             }
         }
     }
