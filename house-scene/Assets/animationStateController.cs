@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-//marea schimbare
 
 public class AnimationStateController : MonoBehaviour
 {
@@ -13,22 +12,28 @@ public class AnimationStateController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource; // Referință către componenta AudioSource asociată sunetului
 
+    private bool isSoundPlaying = false;
+
     void Start()
     {
-        animator = GetComponent<Animator>();
-        if (animator == null)
-        {
-            Debug.LogError("Animator component is missing!");
-        }
-
         if (audioSource == null)
         {
-            // Dacă componenta AudioSource este lipsă, încercă să o găsești pe acest obiect
             audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
             {
                 Debug.LogError("AudioSource component is missing!");
             }
+            else
+            {
+                audioSource.Stop();
+                audioSource.loop = true; // Facem sunetul să se repete
+            }
+        }
+
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator component is missing!");
         }
     }
 
@@ -41,12 +46,20 @@ public class AnimationStateController : MonoBehaviour
             if (distance < activationDistance)
             {
                 animator.SetBool("isJumping", true);
-                
+                if (isSoundPlaying == false)
+                {
+                    audioSource.Play();
+                    isSoundPlaying = true;
+                }
             }
             else
             {
                 animator.SetBool("isJumping", false);
-                audioSource.Play();
+                if (isSoundPlaying == true)
+                {
+                    audioSource.Stop();
+                    isSoundPlaying = false;
+                }
             }
         }
         else

@@ -29,9 +29,7 @@ public class PortalTeleport : MonoBehaviour
 
         Vector3 portalPosition = transform.position;
         Vector3 playerPosition = player.position;
-        
-        
-        
+
         float distance = Vector3.Distance(portalPosition, playerPosition);
         if (distance < 2f)
         {
@@ -39,11 +37,10 @@ public class PortalTeleport : MonoBehaviour
             {
                 player.position = rustKeyObject.transform.position;
 
-                // Redă sunetul pentru teleportare la poziția portalului
-                AudioSource.PlayClipAtPoint(teleportSound, portalPosition);
+                // Folosește Camera.main pentru a obține camera principală și adaugă un AudioSource
+                AudioSource.PlayClipAtPoint(teleportSound, player.position);
 
                 // Activează animația ușii
-                
             }
         }
     }

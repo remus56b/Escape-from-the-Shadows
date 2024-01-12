@@ -8,6 +8,9 @@ public class SecondTeleport : MonoBehaviour
     public Transform player;
     private GameObject doorObject;
     private Animation doorAnimation;
+    public GameObject crawler; // obiectul crawler
+
+
 
 
     private void Start()
@@ -40,6 +43,7 @@ public class SecondTeleport : MonoBehaviour
             if (destination2 != null)
             {
                 player.position = destination2.transform.position;
+                crawler.SetActive(false);
 
                 
 

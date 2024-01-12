@@ -14,6 +14,7 @@ public class PortalTeleport2 : MonoBehaviour
     {
         // Găsește obiectul ușii bazat pe tag
         doorObject = GameObject.FindGameObjectWithTag("door3");
+
     }
 
     private void Update()
