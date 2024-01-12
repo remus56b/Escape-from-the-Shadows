@@ -18,7 +18,7 @@ public class PortalTeleport2 : MonoBehaviour
 
     private void Update()
     {
-        GameObject destination3 = GameObject.Find("destination3");
+        GameObject destination3 = GameObject.Find("pp");
 
         Vector3 portalPosition = transform.position;
         Vector3 playerPosition = player.position;
@@ -26,7 +26,7 @@ public class PortalTeleport2 : MonoBehaviour
 
 
         float distance = Vector3.Distance(portalPosition, playerPosition);
-        if (distance < 6f)
+        if (distance < 8f)
         {
             if (destination3 != null)
             {

@@ -5,8 +5,14 @@ public class Key : MonoBehaviour
     public GameObject crawlerPrefab; // Referință către prefab-ul "crawler"
     public Transform leftHand; // Referință către transform-ul mâinii stângi
     public GameObject door;
+    private bool soundPlayed = false; 
+    public GameObject destination;
+    public bool soundPlayed2= false;
 
-    //public AudioClip audio1; // Primul fișier audio
+
+    public AudioClip audio1; // Primul fișier audio
+    public AudioClip audio2; 
+
 
     void Start()
     {
@@ -17,12 +23,28 @@ public class Key : MonoBehaviour
     {
         // Verificăm distanța dintre leftHand și obiectul "rust_key"
         float distance = Vector3.Distance(leftHand.position, transform.position);
+        float distance2 = Vector3.Distance(leftHand.position, destination.transform.position);
+        if (distance2 < 7f) 
+        {
+            if (!soundPlayed2)
+            {
+                //yield return new WaitForSeconds(10f);
+                AudioSource.PlayClipAtPoint(audio2, transform.position);
+                soundPlayed2 = true;
+            }
+        }
 
         if (distance < 2f)
         {
 
-            //yield return new WaitForSeconds(4f);
-            //AudioSource.PlayClipAtPoint(audio1, transform.position);
+            
+            if (!soundPlayed)
+            {
+                //yield return new WaitForSeconds(10f);
+                // Redă sunetul 1
+                AudioSource.PlayClipAtPoint(audio1, transform.position);
+                soundPlayed = true;
+            }
 
 
             door.SetActive(true);

@@ -17,6 +17,7 @@ TagManager:
   - door2
   - destination3
   - door3
+  - pp
   layers:
   - Default
   - TransparentFX
