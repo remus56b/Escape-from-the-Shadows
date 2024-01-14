@@ -17,6 +17,7 @@ public class playOpenChest : MonoBehaviour
         if (distance <= triggerDistance)
         {
             animator.SetBool("openChest", true);
+            rustKey.SetActive(false);
         }
         else
         {
