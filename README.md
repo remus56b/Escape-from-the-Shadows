@@ -64,17 +64,26 @@ La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena f
 > * Sărbători binecuvântate si un an nou plin de bucurii!🌟🎁🎉  
 
 
-Până în săptămâna a 13-a:  
-* am imbunatatit controlul gameplay-ului: movement prin wasd, dar acum directia se poate schimba si din mouse;  
-* animatia inimii sa pulseze;  
-* am facut monstrul ("Crawler-ul") sa ne urmareasca cat timp suntem in subsol;  
-* am adaugat restul de dialoguri dintre personaj si vocea copilului;  
-* am amenajat zona cimitirului astfel incat sa fie mult mai creepy: am adaugat efect de ceata, am facut ca crucea sa straluceasca, am adaugat sicriul unde trebuie ingropata inima, am adaugat copaci si alte elemente de decor specifice unui cimitir;
-* am terminat teleportarea: (este functionala): atunci cand jucatorul trece prin portal, este teleportat catre destinatie;  
-* am adaugat cerul: atmosfera de noapte cu luna care straluceste si se roteste;  
+> Până în săptămâna a 13-a:  
+> * am imbunatatit controlul gameplay-ului: movement prin wasd, dar acum directia se poate schimba si din mouse;  
+> * animatia inimii sa pulseze;  
+> * am facut monstrul ("Crawler-ul") sa ne urmareasca cat timp suntem in subsol;  
+> * am adaugat restul de dialoguri dintre personaj si vocea copilului;  
+> * am amenajat zona cimitirului astfel incat sa fie mult mai creepy: am adaugat efect de ceata, am facut ca crucea sa straluceasca, am adaugat sicriul unde trebuie ingropata inima, am adaugat copaci si alte elemente de decor specifice unui cimitir;
+> * am terminat teleportarea: (este functionala): atunci cand jucatorul trece prin portal, este teleportat catre destinatie;  
+> * am adaugat cerul: atmosfera de noapte cu luna care straluceste si se roteste;  
 
 
-//TODO - almost done (pentru a fi gata jocul):  
-* de adaugat animatia la cufar si usi;  
+Până în săptămâna a 14-a:  
+* am imbunatatit gameplay-ul si coliziunile pentru diferite obiecte;
+* gameplay aproape complet, cu mici lucruri ce au ramas de implementat
+* am modificat scale, rotation la animatia inimii sa pulseze si am atasat-o obiectului;
+* am adaugat animatii la la usile prin care player-ul intra si unde se face teleportarea;  
+* am setat animatiile de la deschiderea usilor sa se execute doar atunci cand jucatorul se apropie de acestea;
+* am setat ca animatia de deschidere a cufarului sa se execute doar atunci cand jucatorul are cheia corespunzatoare pentru a o deschide;  
+* am lucrat la poveste;  
+
+
+//TODO - almost done (pentru a fi gata jocul):   
 * de adaugat scriptul pentru ingroparea inimii si terminare a jocului;  
 * supriza de la final (playerul afla de fapt ce s-a intamplat);  
