@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Animator rightHand;
 
-    public float viteza = 5f; // Viteza obiectului
+    public float viteza = 15f; // Viteza obiectului
 
     private Vector3 throwDirection;
     private float throwForce = 8.0f;
