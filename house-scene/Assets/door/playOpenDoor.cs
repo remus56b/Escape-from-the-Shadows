@@ -6,12 +6,10 @@ public class playOpenDoor : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject player; // Obiectul "Player"
-    public float triggerDistance = 1.0f; // Distanța la care se declanșează animația
-
+    public float triggerDistance = 6.0f; // Distanța la care se declanșează animația
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame

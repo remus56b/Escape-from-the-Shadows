@@ -19,6 +19,7 @@ TagManager:
   - door3
   - pp
   - bed
+  - basemant
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class PortalTeleport2 : MonoBehaviour
 
 
         float distance = Vector3.Distance(portalPosition, playerPosition);
-        if (distance < 8f)
+        if (distance < 9f)
         {
             if (destination3 != null)
             {

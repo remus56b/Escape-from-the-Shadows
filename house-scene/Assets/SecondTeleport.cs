@@ -7,6 +7,8 @@ public class SecondTeleport : MonoBehaviour
     public Transform teleportDestination;
     public Transform player;
     private GameObject doorObject;
+    private GameObject basemantObject;
+
     private Animation doorAnimation;
     public GameObject crawler; // obiectul crawler
 
@@ -16,6 +18,7 @@ public class SecondTeleport : MonoBehaviour
     private void Start()
     {
         // Găsește obiectul ușii bazat pe tag
+        basemantObject = GameObject.FindGameObjectWithTag("basemant");
         doorObject = GameObject.FindGameObjectWithTag("door2");
         if (doorObject != null)
         {
@@ -44,6 +47,7 @@ public class SecondTeleport : MonoBehaviour
             {
                 player.position = destination2.transform.position;
                 crawler.SetActive(false);
+                basemantObject.SetActive(false);
             }
         }
         else
