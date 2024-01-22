@@ -13,14 +13,26 @@ public class Coffin : MonoBehaviour
     public AudioSource audio2;
     public GameObject demon;
 
+    public GameObject cruce1;
+    public GameObject cruce2;
+    public GameObject cruce3;
+
+    private float rotationSpeed = 50f;
+
     private bool isSinking = false;
     private bool hasPlayedSound = false;
     private bool hasStartedDemonAppearance = false;
     private float demonAppearSpeed = 0.5f; // Viteza de apariție a demonului
+    private float demonLevSpeed = 1f; // Viteza de apariție a demonului
     private bool isLuminaCruceActive = false;
+
+    private bool hasDemonCompletedRising = false; // Noua variabilă pentru a ține evidența terminării urcării demonului
 
     void Start()
     {
+        cruce1.SetActive(false);
+        cruce2.SetActive(false);
+        cruce3.SetActive(false);
 
     }
 
@@ -28,7 +40,7 @@ public class Coffin : MonoBehaviour
     {
         isLuminaCruceActive = !isLuminaCruceActive;
 
-        if (isLuminaCruceActive)
+        if (isLuminaCruceActive && !hasStartedDemonAppearance)
         {
             luminaCrucePrefab1.SetActive(true);
             luminaCrucePrefab2.SetActive(true);
@@ -73,14 +85,43 @@ public class Coffin : MonoBehaviour
     {
         audio2.Play();
         hasStartedDemonAppearance = true;
+        hasDemonCompletedRising = true; // Activează variabila pentru a ține evidența terminării urcării demonului
+        
+
     }
 
     void LateUpdate()
+{
+    if (hasStartedDemonAppearance && demon.transform.position.y < 8f)
     {
-        if (hasStartedDemonAppearance && demon.transform.position.y < 8f) // Ajustează în funcție de înălțimea dorită
-        {
-            float demonY = demon.transform.position.y + demonAppearSpeed * Time.deltaTime;
-            demon.transform.position = new Vector3(demon.transform.position.x, demonY, demon.transform.position.z);
+
+        luminaCrucePrefab1.SetActive(false);
+        luminaCrucePrefab2.SetActive(false);
+        float demonY = demon.transform.position.y + demonAppearSpeed * Time.deltaTime;
+        demon.transform.position = new Vector3(demon.transform.position.x, demonY, demon.transform.position.z);
+        cruce1.SetActive(true);
+            cruce2.SetActive(true);
+            cruce3.SetActive(true);
+        RotateAroundDemon(cruce1, Vector3.up);
+        RotateAroundDemon(cruce2, Vector3.up);  // Schimbă Vector3.right cu axa dorită pentru a obține orientarea corectă
+        RotateAroundDemon(cruce3, Vector3.up);
         }
+    else if (hasStartedDemonAppearance && hasDemonCompletedRising)
+    {
+        float levitateOffset = Mathf.Sin(Time.time * demonLevSpeed) * 0.5f;
+
+        float demonY = demon.transform.position.y + levitateOffset * Time.deltaTime;
+        demon.transform.position = new Vector3(demon.transform.position.x, demonY, demon.transform.position.z);
+
+        // Rotație cruci în jurul demonului
+        RotateAroundDemon(cruce1, Vector3.up);
+        RotateAroundDemon(cruce2, Vector3.up);  // Schimbă Vector3.right cu axa dorită pentru a obține orientarea corectă
+        RotateAroundDemon(cruce3, Vector3.up);  // Schimbă Vector3.forward cu axa dorită pentru a obține orientarea corectă
+    }
+}
+
+    void RotateAroundDemon(GameObject cruce, Vector3 axis)
+    {
+        cruce.transform.RotateAround(demon.transform.position, axis, rotationSpeed * Time.deltaTime);
     }
 }
