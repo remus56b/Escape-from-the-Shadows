@@ -6,13 +6,17 @@ public class playOpenChest : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject rustKey; // Obiectul "rust_key"
+    [SerializeField] private GameObject door;
+    public AudioSource audio1; // Componenta AudioSource pentru sunetul sound1
     public float triggerDistance = 1.0f; // Distanța la care se declanșează animația
-    public GameObject door;
+
+    private bool hasPlayedSound = false;
 
     void Start()
     {
         door.SetActive(false);
     }
+
     void Update()
     {
         // Calculează distanța dintre "chest" și "rust_key"
@@ -24,6 +28,13 @@ public class playOpenChest : MonoBehaviour
             animator.SetBool("openChest", true);
             rustKey.SetActive(false);
             door.SetActive(true);
+
+            // Redă sunetul doar o dată
+            if (!hasPlayedSound)
+            {
+                audio1.Play();
+                hasPlayedSound = true;
+            }
         }
         else
         {

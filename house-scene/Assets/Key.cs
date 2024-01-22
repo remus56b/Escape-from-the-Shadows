@@ -10,8 +10,8 @@ public class Key : MonoBehaviour
     public GameObject destination;
     private bool soundPlayed2 = false;
 
-    public AudioClip audio1; // Primul fișier audio
-    public AudioClip audio3; // Al treilea fișier audio
+    public AudioSource audio1; // Primul fișier audio
+    public AudioSource audio3; // Al treilea fișier audio
 
     private float delayTimer = 0f;
     private bool delayStarted = false;
@@ -32,7 +32,7 @@ public class Key : MonoBehaviour
         {
             if (!soundPlayed2)
             {
-                AudioSource.PlayClipAtPoint(audio3, leftHand.position);
+                audio3.Play();
                 soundPlayed2 = true;
             }
         }
@@ -42,7 +42,7 @@ public class Key : MonoBehaviour
             if (!soundPlayed)
             {
                 // Redă sunetul 1
-                AudioSource.PlayClipAtPoint(audio1, transform.position);
+                audio1.Play();
                 soundPlayed = true;
             }
 
