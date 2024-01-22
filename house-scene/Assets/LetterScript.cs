@@ -6,7 +6,7 @@ public class InteractionController : MonoBehaviour
     public GameObject letterObject; // Referința către obiectul "letter"
     public GameObject imagineAfisata; // Referința către obiectul Image din Canvas
     public GameObject door;
-    public AudioClip audio1; // Primul fișier audio
+    public AudioSource audio1; // Primul fișier audio
     private int letterOpened = 0; // Indicator pentru scrisoare deschisă
 
     void Start()
@@ -32,8 +32,7 @@ public class InteractionController : MonoBehaviour
             if (letterOpened == 1)
             {
                 // Redă sunetul 1
-                AudioSource.PlayClipAtPoint(audio1, transform.position);
-
+                audio1.Play();
                 // Așteaptă până când sunetul 1 se termină și apoi redă sunetul 2
                 letterOpened += 1;
 

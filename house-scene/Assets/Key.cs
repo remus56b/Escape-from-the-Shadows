@@ -9,12 +9,16 @@ public class Key : MonoBehaviour
     private bool soundPlayed = false;
     public GameObject destination;
     private bool soundPlayed2 = false;
+    private bool soundPlayed4 = false;
 
     public AudioSource audio1; // Primul fișier audio
     public AudioSource audio3; // Al treilea fișier audio
+    public AudioSource audio4; // Al patrulea fișier audio
 
-    private float delayTimer = 0f;
-    private bool delayStarted = false;
+    private float delayTimer1 = 0f;
+    private bool delayStarted1 = false;
+    private float delayTimer2 = 0f;
+    private bool delayStarted2 = false;
 
     void Start()
     {
@@ -52,16 +56,31 @@ public class Key : MonoBehaviour
             if (crawlerPrefab != null && GameObject.FindWithTag("crawler") == null)
             {
                 // Introducem un delay de 5 secunde înainte de a activa crawler-ul
-                if (!delayStarted)
+                if (!delayStarted1)
                 {
-                    delayStarted = true;
-                    delayTimer = Time.time + 7f;
+                    delayStarted1 = true;
+                    delayTimer1 = Time.time + 0f;
                 }
-                else if (Time.time >= delayTimer)
+                else if (Time.time >= delayTimer1)
                 {
                     // Instanțiem obiectul "crawler" după trecerea celor 5 secunde
                     crawlerPrefab.SetActive(true);
                 }
+            }
+        }
+
+        // Adaugăm un delay de 3 secunde înainte de a reda audio4
+        if (soundPlayed && !soundPlayed4)
+        {
+            if (!delayStarted2)
+            {
+                delayStarted2 = true;
+                delayTimer2 = Time.time + 8f;
+            }
+            else if (Time.time >= delayTimer2)
+            {
+                audio4.Play();
+                soundPlayed4 = true;
             }
         }
     }

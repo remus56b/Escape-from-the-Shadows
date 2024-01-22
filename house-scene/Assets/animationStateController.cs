@@ -3,31 +3,20 @@
 public class AnimationStateController : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField]
-    private Transform handsManagerTransform;
-    [SerializeField]
-    private Transform crawlerTransform;
-    [SerializeField]
-    private float activationDistance = 5f;
-    [SerializeField]
-    private AudioSource audioSource; // Referință către componenta AudioSource asociată sunetului
+    [SerializeField] private Transform handsManagerTransform;
+    [SerializeField] private Transform crawlerTransform;
+    [SerializeField] private float activationDistance = 5f;
+    [SerializeField] private AudioSource audioSource; // Referință către componenta AudioSource asociată sunetului
 
-    private bool isSoundPlaying = false;
+    private float audioDelay = 5f;
+    private float currentDelay = 0f;
+    private bool hasPlayedAudio = false;
 
-    void Start()
+    private void Start()
     {
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
-            if (audioSource == null)
-            {
-                Debug.LogError("AudioSource component is missing!");
-            }
-            else
-            {
-                audioSource.Stop();
-                audioSource.loop = true; // Facem sunetul să se repete
-            }
         }
 
         animator = GetComponent<Animator>();
@@ -37,7 +26,7 @@ public class AnimationStateController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (handsManagerTransform != null && crawlerTransform != null)
         {
@@ -45,21 +34,34 @@ public class AnimationStateController : MonoBehaviour
 
             if (distance < activationDistance)
             {
+                // Setăm parametrul "isJumping" la true pentru a face animația să ruleze în mod continuu
                 animator.SetBool("isJumping", true);
-                if (isSoundPlaying == false)
+
+                if (!hasPlayedAudio)
                 {
                     audioSource.Play();
-                    isSoundPlaying = true;
+                    hasPlayedAudio = true;
+                }
+
+                if (currentDelay < audioDelay)
+                {
+                    currentDelay += Time.deltaTime;
+                }
+                else
+                {
+                    // Resetăm variabilele pentru a permite redarea sunetului după ce s-a atins delay-ul dorit
+                    currentDelay = 0f;
+                    hasPlayedAudio = false;
                 }
             }
             else
             {
-                animator.SetBool("isJumping", false);
-                if (isSoundPlaying == true)
-                {
-                    audioSource.Stop();
-                    isSoundPlaying = false;
-                }
+                // Resetăm variabilele dacă jucătorul nu se află în apropiere
+                currentDelay = 0f;
+                hasPlayedAudio = false;
+
+                //// Setăm parametrul "isJumping" la false pentru a opri animația
+                //animator.SetBool("isJumping", false);
             }
         }
         else

@@ -12,6 +12,10 @@ public class Coffin : MonoBehaviour
     private bool isSinking = false;
     private float appearanceTimer = 0f;
     private bool isLuminaCruceActive = false;
+    public AudioSource audio1;
+    public AudioSource audio2;
+
+    private bool hasPlayedSound = false;
 
 
     void Start()
@@ -55,6 +59,20 @@ public class Coffin : MonoBehaviour
             float sinkStep = sinkingSpeed * Time.deltaTime;
             transform.position -= new Vector3(0f, sinkStep, 0f);
             heart.transform.position -= new Vector3(0f, sinkStep, 0f);
+
+            if (!hasPlayedSound)
+            {
+                audio1.Play();
+                hasPlayedSound = true;
+
+                // Adaugă un delay de 4 secunde înainte de a reda audio2
+                Invoke("PlayAudio2", 11f);
+            }
         }
+    }
+
+    void PlayAudio2()
+    {
+        audio2.Play();
     }
 }

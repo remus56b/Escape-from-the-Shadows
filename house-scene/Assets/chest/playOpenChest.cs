@@ -29,10 +29,10 @@ public class playOpenChest : MonoBehaviour
             rustKey.SetActive(false);
             door.SetActive(true);
 
-            // Redă sunetul doar o dată
+            // Apelează corutina pentru a realiza delay-ul înainte de redarea sunetului
             if (!hasPlayedSound)
             {
-                audio1.Play();
+                StartCoroutine(PlaySoundWithDelay());
                 hasPlayedSound = true;
             }
         }
@@ -40,5 +40,14 @@ public class playOpenChest : MonoBehaviour
         {
             animator.SetBool("openChest", false);
         }
+    }
+
+    IEnumerator PlaySoundWithDelay()
+    {
+        // Așteaptă 2 secunde
+        yield return new WaitForSeconds(2.0f);
+
+        // Redă sunetul
+        audio1.Play();
     }
 }
