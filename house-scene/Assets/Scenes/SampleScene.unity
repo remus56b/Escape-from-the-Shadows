@@ -16688,6 +16688,7 @@ MonoBehaviour:
   cruce2: {fileID: 218745707}
   cruce3: {fileID: 1317110325}
   imagineAfisata: {fileID: 1194052039}
+  player: {fileID: 1459356665}
 --- !u!1 &721404414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 557312668e6cafa468357c067a3ddb41,
@@ -19681,17 +19682,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc24b5565876cdc41b3b11dd4482674d,
         type: 3}

@@ -32,6 +32,11 @@ public class Coffin : MonoBehaviour
     private float currentAudio3Volume = 0.05f; // Variabila pentru a tine evidenta intensitatii sunetului audio3
     public GameObject imagineAfisata; // Referința către obiectul Image din Canvas
 
+    private bool hasRotatedCrucifixes = false; // Verifica daca crucile s-au rotit deja
+    private float rotateCrucifixesDelay = 25f; // Delay-ul pentru rotirea crucilor
+
+    public GameObject player; // Referința către obiectul "Player"
+
     void Start()
     {
         cruce1.SetActive(false);
@@ -95,29 +100,94 @@ public class Coffin : MonoBehaviour
 
         // Începe creșterea treptată a intensității audio3
         InvokeRepeating("IncreaseAudio3Intensity", 0f, 7f);
+        
+
+        // Începe rotirea crucilor după 30 de secunde
+        Invoke("RotateCrucifixes", rotateCrucifixesDelay);
         Invoke("ShowImage", 30f);
-
-
     }
+
     void ShowImage()
     {
         imagineAfisata.SetActive(true);
         imagineAfisata.transform.position = Camera.main.WorldToScreenPoint(demon.transform.position);
     }
 
-        void IncreaseAudio3Intensity()
+    void IncreaseAudio3Intensity()
+    {
+        if (currentAudio3Volume < 0.25f) // Intensitatea maxima a sunetului (1.0)
         {
-            if (currentAudio3Volume < 0.28f) // Intensitatea maxima a sunetului (1.0)
-            {
-                currentAudio3Volume += 0.05f; // Creste intensitatea
-                audio3.volume = currentAudio3Volume;
-            }
-            else
-            {
-                // Opreste invocarea pentru a evita cresteri continue dupa atingerea valorii maxime
-                CancelInvoke("IncreaseAudio3Intensity");
-            }
+            currentAudio3Volume += 0.05f; // Creste intensitatea
+            audio3.volume = currentAudio3Volume;
         }
+        else
+        {
+            // Opreste invocarea pentru a evita cresteri continue dupa atingerea valorii maxime
+            CancelInvoke("IncreaseAudio3Intensity");
+        }
+    }
+
+    void RotateCrucifixes()
+    {
+        if (!hasRotatedCrucifixes)
+        {
+            // Ridică crucile la înălțimea lor actuală înainte de rotație
+            StartCoroutine(MoveCruce(cruce1, 2f)); // 2f este durata ridicării
+            StartCoroutine(MoveCruce(cruce2, 2f));
+            StartCoroutine(MoveCruce(cruce3, 2f));
+
+            // Așteaptă o perioadă scurtă după ridicare înainte de a începe rotația
+            Invoke("StartRotatingCrucifixes", 2f);
+
+            hasRotatedCrucifixes = true;
+        }
+    }
+
+    void StartRotatingCrucifixes()
+    {
+        // Începe rotația crucilor după ce s-au ridicat
+        StartCoroutine(RotateCrucifix(cruce1));
+        StartCoroutine(RotateCrucifix(cruce2));
+        StartCoroutine(RotateCrucifix(cruce3));
+    }
+
+    IEnumerator MoveCruce(GameObject cruce, float duration)
+    {
+        float elapsed = 0f;
+        Vector3 startPosition = cruce.transform.position;
+        Vector3 targetPositionOffset = new Vector3(0f, 8f, 0f); // Ajustați înălțimea la care doriți să se ridice crucile
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            cruce.transform.position = Vector3.Lerp(startPosition, startPosition + targetPositionOffset, t);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cruce.transform.position = startPosition + targetPositionOffset; // Asigurăm poziția finală
+    }
+
+    IEnumerator RotateCrucifix(GameObject cruce)
+    {
+        float duration = 2f; // Durata rotației (2 secunde în exemplu, ajustați după preferințe)
+        float elapsed = 0f;
+
+        Vector3 startRotation = cruce.transform.rotation.eulerAngles;
+        Vector3 targetRotation = new Vector3(startRotation.x - 180f, startRotation.y, startRotation.z); // Rotire cu susul în jos
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            cruce.transform.rotation = Quaternion.Euler(Vector3.Lerp(startRotation, targetRotation, t));
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cruce.transform.rotation = Quaternion.Euler(targetRotation); // Asigurăm că ajunge exact la 180 de grade
+    }
 
     void LateUpdate()
     {
@@ -129,12 +199,12 @@ public class Coffin : MonoBehaviour
             float demonY = demon.transform.position.y + demonAppearSpeed * Time.deltaTime;
             demon.transform.position = new Vector3(demon.transform.position.x, demonY, demon.transform.position.z);
             cruce1.SetActive(true);
-                cruce2.SetActive(true);
-                cruce3.SetActive(true);
+            cruce2.SetActive(true);
+            cruce3.SetActive(true);
             RotateAroundDemon(cruce1, Vector3.up);
-            RotateAroundDemon(cruce2, Vector3.up);  // Schimbă Vector3.right cu axa dorită pentru a obține orientarea corectă
+            RotateAroundDemon(cruce2, Vector3.up);  
             RotateAroundDemon(cruce3, Vector3.up);
-            }
+        }
         else if (hasStartedDemonAppearance && hasDemonCompletedRising)
         {
             float levitateOffset = Mathf.Sin(Time.time * demonLevSpeed) * 0.5f;
