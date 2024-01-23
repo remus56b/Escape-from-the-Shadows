@@ -1,4 +1,4 @@
-﻿# Escape-from-the-Shadows - proiect IMR  
+# Escape-from-the-Shadows - proiect IMR  
 
 ## Table of Contents
 * [Team](#team)
@@ -74,16 +74,23 @@ La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena f
 > * am adaugat cerul: atmosfera de noapte cu luna care straluceste si se roteste;  
 
 
-Până în săptămâna a 14-a:  
-* am imbunatatit gameplay-ul si coliziunile pentru diferite obiecte;
-* gameplay aproape complet, cu mici lucruri ce au ramas de implementat
-* am modificat scale, rotation la animatia inimii sa pulseze si am atasat-o obiectului;
-* am adaugat animatii la la usile prin care player-ul intra si unde se face teleportarea;  
-* am setat animatiile de la deschiderea usilor sa se execute doar atunci cand jucatorul se apropie de acestea;
-* am setat ca animatia de deschidere a cufarului sa se execute doar atunci cand jucatorul are cheia corespunzatoare pentru a o deschide;  
-* am lucrat la poveste;  
+> Până în săptămâna a 14-a:  
+> * am imbunatatit gameplay-ul si coliziunile pentru diferite obiecte;
+> * gameplay aproape complet, cu mici lucruri ce au ramas de implementat
+> * am modificat scale, rotation la animatia inimii sa pulseze si am atasat-o obiectului;
+> * am adaugat animatii la la usile prin care player-ul intra si unde se face teleportarea;  
+> * am setat animatiile de la deschiderea usilor sa se execute doar atunci cand jucatorul se apropie de acestea;
+> * am setat ca animatia de deschidere a cufarului sa se execute doar atunci cand jucatorul are cheia corespunzatoare pentru a o deschide;  
+> * am lucrat la poveste;  
+
+> //DONE - almost done (pentru a fi gata jocul):   
+> * de adaugat scriptul pentru ingroparea inimii si terminare a jocului;  
+> * supriza de la final (playerul afla de fapt ce s-a intamplat);  
 
 
-//TODO - almost done (pentru a fi gata jocul):   
-* de adaugat scriptul pentru ingroparea inimii si terminare a jocului;  
-* supriza de la final (playerul afla de fapt ce s-a intamplat);  
+Pana in saptamana a 15-a:
+* - dupa ce inima este pusa in sicriu, ele coboara sub pamant, de unde apare personajul malefic (Cursed Priest): apare la finalul jocului, iesind din pamant si levitand;  
+* - cand personajul malefic leviteaza, apar 3 cruci care se invart in jurul lui, provocand un efect creepy;  
+* - am adaugat noi sunete de fundal (scartait de usi, la ending scene sunet de 'Outlast');  
+* - am adaugat ending screen ("Part 2 coming soon..");  
+* - fixed bugs (la fisierele audio, teleportare, etc..);  
