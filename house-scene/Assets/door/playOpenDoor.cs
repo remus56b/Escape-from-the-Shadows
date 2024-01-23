@@ -8,6 +8,8 @@ public class playOpenDoor : MonoBehaviour
     [SerializeField] private GameObject player; // Obiectul "Player"
     public float triggerDistance = 6.0f; // Distanța la care se declanșează animația
     // Start is called before the first frame update
+    public AudioSource audio1;
+    private bool hasPlayedSound = false;
     void Start()
     {
     }
@@ -22,6 +24,13 @@ public class playOpenDoor : MonoBehaviour
         if (distance <= triggerDistance)
         {
             animator.SetBool("openDoor", true);
+            if (!hasPlayedSound)
+            {
+                audio1.Play();
+                hasPlayedSound = true;
+            }
+            
+
         }
         else
         {
