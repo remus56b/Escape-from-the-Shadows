@@ -91,6 +91,6 @@ La partea de modelare, vom mai avea de facut cimitirul, unde va avea loc scena f
 Pana in saptamana a 15-a:
 * - dupa ce inima este pusa in sicriu, ele coboara sub pamant, de unde apare personajul malefic (Cursed Priest): apare la finalul jocului, iesind din pamant si levitand;  
 * - cand personajul malefic leviteaza, apar 3 cruci care se invart in jurul lui, provocand un efect creepy;  
-* - am adaugat noi sunete de fundal (scartait de usi, la ending scene);  
-* - am adaugat ending screen (part 2 coming soon);  
+* - am adaugat noi sunete de fundal (scartait de usi, la ending scene sunet de 'Outlast');  
+* - am adaugat ending screen ("Part 2 coming soon..");  
 * - fixed bugs (la fisierele audio, teleportare, etc..);  
