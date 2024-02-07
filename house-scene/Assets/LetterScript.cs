@@ -18,7 +18,7 @@ public class InteractionController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(leftHand.transform.position, letterObject.transform.position);
-        if (distance < 1.0f ) // Verificăm dacă mâna stângă este aproape de scrisoare și scrisoarea nu a fost deschisă încă
+        if (distance < 2.0f ) // Verificăm dacă mâna stângă este aproape de scrisoare și scrisoarea nu a fost deschisă încă
         {
             imagineAfisata.SetActive(true);
             imagineAfisata.transform.position = Camera.main.WorldToScreenPoint(letterObject.transform.position);

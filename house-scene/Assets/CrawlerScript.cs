@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class CrawlerScript : MonoBehaviour
 {
@@ -12,13 +14,13 @@ public class CrawlerScript : MonoBehaviour
     public float maxHealth = 10f;
     private float currentHealth;
     public Slider healthSlider;
-    public ParticleSystem bloodParticles;
+    public GameObject youDied;
 
-    private Camera mainCamera; // Adăugat referință la camera principală
 
     private void Start()
     {
         currentHealth = maxHealth;
+        youDied.SetActive(false);
 
         if (healthSlider == null)
         {
@@ -30,12 +32,7 @@ public class CrawlerScript : MonoBehaviour
             healthSlider.value = currentHealth;
         }
 
-        // Obține referința la camera principală
-        mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            Debug.LogError("Main Camera not found!");
-        }
+        
     }
 
     private void Update()
@@ -46,9 +43,9 @@ public class CrawlerScript : MonoBehaviour
             transform.position += directionToPlayer.normalized * followSpeed * Time.deltaTime;
 
             float distanceToPlayer = directionToPlayer.magnitude;
-            if (distanceToPlayer < 1.0f)
+            if (distanceToPlayer < 5.0f)
             {
-                // Scade din HP-ul player-ului la o rată specificată
+                
                 TakeDamage(damageRate * Time.deltaTime);
             }
         }
@@ -63,17 +60,10 @@ public class CrawlerScript : MonoBehaviour
         currentHealth -= damage;
         healthSlider.value = currentHealth;
 
-        // Declanșează sistemul de particule la poziția camerei principale
-        if (bloodParticles != null)
-        {
-            bloodParticles.transform.position = mainCamera.transform.position;
-            bloodParticles.Play();
-        }
-
+        
         if (currentHealth <= 0)
         {
-            // Implementează acțiunile dorite când HP-ul ajunge la 0
-            Destroy(player);
+            youDied.SetActive(true);
         }
     }
 }
