@@ -26,12 +26,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PostProcessing
+  - PostProcessingDamage
   - Water
   - UI
   - Camera
-  - PostProcessing2
   - 
+  - PostProcessingHeal
   - 
   - 
   - 

@@ -15,6 +15,7 @@ public class TakeDamage : MonoBehaviour
 
     void Start()
     {
+        
         _volume = GetComponent<PostProcessVolume>();
         _volume.profile.TryGetSettings<Vignette>(out _vignette);
         if (!_vignette)
@@ -34,6 +35,7 @@ public class TakeDamage : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(player.transform.position, crawler.transform.position);
             if (distanceToPlayer < 6.0f)
             {
+                Debug.Log("start damage");
                 StartCoroutine(StartTakeDamageEffect()); 
             }
         }
