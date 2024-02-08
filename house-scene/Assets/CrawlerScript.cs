@@ -14,6 +14,8 @@ public class CrawlerScript : MonoBehaviour
     private float currentHealth;
     public Slider healthSlider;
     public GameObject youDied;
+    public GameObject medicine;
+   
 
     private float lastDamageTime;
     public float damageDelay = 0.05f; // Setează durata delay-ului în secunde
@@ -22,6 +24,7 @@ public class CrawlerScript : MonoBehaviour
     {
         currentHealth = maxHealth;
         youDied.SetActive(false);
+        medicine.SetActive(false);
 
         if (healthSlider == null)
         {
@@ -51,6 +54,7 @@ public class CrawlerScript : MonoBehaviour
                 {
                     TakeDamage(damageRate * Time.deltaTime);
                     lastDamageTime = Time.time; // Actualizează lastDamageTime cu timpul curent
+
                 }
             }
         }
@@ -64,7 +68,7 @@ public class CrawlerScript : MonoBehaviour
     {
         currentHealth -= damage;
         healthSlider.value = currentHealth;
-
+        medicine.SetActive(true);
         if (currentHealth <= 0)
         {
             youDied.SetActive(true);

@@ -34,7 +34,7 @@ public class TakeDamage : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(player.transform.position, crawler.transform.position);
             if (distanceToPlayer < 6.0f)
             {
-                StartCoroutine(StartTakeDamageEffect()); // Start coroutine only if no damage effect is active
+                StartCoroutine(StartTakeDamageEffect()); 
             }
         }
         else if (!player.activeSelf)

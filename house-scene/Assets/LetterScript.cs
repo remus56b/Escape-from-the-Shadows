@@ -2,23 +2,23 @@
 
 public class InteractionController : MonoBehaviour
 {
-    public GameObject leftHand; // Referința către Left Hand
-    public GameObject letterObject; // Referința către obiectul "letter"
-    public GameObject imagineAfisata; // Referința către obiectul Image din Canvas
+    public GameObject leftHand; 
+    public GameObject letterObject; 
+    public GameObject imagineAfisata; 
     public GameObject door;
-    public AudioSource audio1; // Primul fișier audio
-    private int letterOpened = 0; // Indicator pentru scrisoare deschisă
+    public AudioSource audio1; 
+    private int letterOpened = 0; 
 
     void Start()
     {
-        imagineAfisata.SetActive(false); // Imaginea nu este afișată la începutul jocului
+        imagineAfisata.SetActive(false); 
         door.SetActive(false);
     }
 
     void Update()
     {
         float distance = Vector3.Distance(leftHand.transform.position, letterObject.transform.position);
-        if (distance < 2.0f ) // Verificăm dacă mâna stângă este aproape de scrisoare și scrisoarea nu a fost deschisă încă
+        if (distance < 2.0f ) 
         {
             imagineAfisata.SetActive(true);
             imagineAfisata.transform.position = Camera.main.WorldToScreenPoint(letterObject.transform.position);
@@ -31,16 +31,10 @@ public class InteractionController : MonoBehaviour
         {
             if (letterOpened == 1)
             {
-                // Redă sunetul 1
                 audio1.Play();
-                // Așteaptă până când sunetul 1 se termină și apoi redă sunetul 2
                 letterOpened += 1;
-
-
             }
             imagineAfisata.SetActive(false);
         }
     }
-
-    
 }
