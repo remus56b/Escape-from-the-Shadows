@@ -41,7 +41,6 @@ public class Medicine : MonoBehaviour
             if (distanceToPlayer < maxDistance)
             {
                 hpBar.GetComponent<Slider>().value = maxHealth;
-                medicine.SetActive(false);
             }
         }
         else

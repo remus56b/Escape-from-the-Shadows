@@ -33,10 +33,11 @@ public class Heal : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, medicine.transform.position);
 
-            if (distanceToPlayer < 8.0f && !isEffectActive && effectCount < maxEffectCount)
+            if (distanceToPlayer < 8.0f && !isEffectActive && effectCount <= maxEffectCount)
             {
                 StartCoroutine(StartHealEffect());
             }
+
         }
         else if (!player.activeSelf)
         {
@@ -50,6 +51,10 @@ public class Heal : MonoBehaviour
         effectCount++;
         yield return StartCoroutine(HealEffect());
         isEffectActive = false;
+        if(effectCount == maxEffectCount)
+        {
+            medicine.SetActive(false);
+        }
     }
 
     private IEnumerator HealEffect()
@@ -71,6 +76,7 @@ public class Heal : MonoBehaviour
 
         }
         yield return new WaitForSeconds(0.1f);
+
 
         _vignette.enabled.Override(false);
     }

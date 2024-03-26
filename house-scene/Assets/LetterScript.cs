@@ -18,7 +18,7 @@ public class InteractionController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(leftHand.transform.position, letterObject.transform.position);
-        if (distance < 2.0f ) 
+        if (distance < 3.0f ) 
         {
             imagineAfisata.SetActive(true);
             imagineAfisata.transform.position = Camera.main.WorldToScreenPoint(letterObject.transform.position);
