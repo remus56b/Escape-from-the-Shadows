@@ -15,12 +15,39 @@ public class PlayerController : MonoBehaviour
     private float throwForce = 8.0f;
     private float throwHeight = 1.0f;
     private bool isGrabbing = false;
+    public GameObject axeInHand; // Obiectul 'HRR_Axe_01' din mână
+    public GameObject axeInScene; // Obiectul 'HRR_Axe_02' din scenă
+    public float activationDistance = 5.0f; // Distanța la care obiectul din mână se activează
+    private MeshRenderer renderer1;
+
+    void Start()
+    {
+        axeInHand = GameObject.Find("Object1538");
+        axeInScene = GameObject.Find("Object1538_2");
+
+        Debug.Log("Start function");
+   
+        if (axeInHand != null && axeInScene != null)
+        {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
+            renderer1 = axeInHand.GetComponent<MeshRenderer>();
+            renderer1.enabled = false;
+        }
+    }
+
+
+
+
 
     void Update()
     {
         HandleMovement();
         HandleGrabbing();
         HandleThrowing();
+        if (renderer1 != null && renderer1.enabled == false)
+        {
+            HandleAxeActivation();
+        }
     }
 
     private void HandleMovement()
@@ -63,6 +90,23 @@ public class PlayerController : MonoBehaviour
         {
             directieDeplasare.Normalize();
             transform.Translate(directieDeplasare * viteza * Time.deltaTime, Space.World);
+        }
+    }
+
+    private void HandleAxeActivation()
+    {
+        if (axeInScene != null)
+        {
+            float distance = Vector3.Distance(transform.position, axeInScene.transform.position);
+            if (distance < activationDistance)
+            {
+                Debug.Log("BBBBBBBBBB");
+                if (renderer1 != null)
+                {
+                    renderer1.enabled = true;
+                }
+                axeInScene.SetActive(false);
+            }
         }
     }
 

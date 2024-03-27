@@ -11,7 +11,8 @@ public class SecondTeleport : MonoBehaviour
 
     private Animation doorAnimation;
     public GameObject crawler; // obiectul crawler
-
+    private MeshRenderer renderer1;
+    public GameObject axeInHand; // Obiectul 'HRR_Axe_01' din mână
 
 
 
@@ -20,6 +21,7 @@ public class SecondTeleport : MonoBehaviour
         // Găsește obiectul ușii bazat pe tag
         basemantObject = GameObject.FindGameObjectWithTag("basemant");
         doorObject = GameObject.FindGameObjectWithTag("door2");
+        axeInHand = GameObject.Find("Object1538");
         if (doorObject != null)
         {
             doorAnimation = doorObject.GetComponent<Animation>();
@@ -48,6 +50,9 @@ public class SecondTeleport : MonoBehaviour
                 player.position = destination2.transform.position;
                 crawler.SetActive(false);
                 basemantObject.SetActive(false);
+                renderer1 = axeInHand.GetComponent<MeshRenderer>();
+                renderer1.enabled = false;
+
             }
         }
         else
