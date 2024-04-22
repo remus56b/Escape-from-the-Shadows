@@ -5,16 +5,18 @@ using UnityEngine;
 public class playOpenChest : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject rustKey; // Obiectul "rust_key"
+    [SerializeField] private GameObject rustKey; 
     [SerializeField] private GameObject door;
     public AudioSource audio1; // Componenta AudioSource pentru sunetul sound1
-    public float triggerDistance = 1.0f; // Distanța la care se declanșează animația
-
+    public float triggerDistance = 1.0f;
+    public GameObject heart;
     private bool hasPlayedSound = false;
 
     void Start()
     {
         door.SetActive(false);
+        heart.SetActive(false);
+
     }
 
     void Update()
@@ -28,6 +30,8 @@ public class playOpenChest : MonoBehaviour
             animator.SetBool("openChest", true);
             rustKey.SetActive(false);
             door.SetActive(true);
+            heart.SetActive(true);
+
 
             // Apelează corutina pentru a realiza delay-ul înainte de redarea sunetului
             if (!hasPlayedSound)

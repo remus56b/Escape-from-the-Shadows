@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coffin : MonoBehaviour
 {
     public GameObject heart;
+    public GameObject animatieheart;
     public GameObject luminaCrucePrefab1;
     public GameObject luminaCrucePrefab2;
     public float sinkingSpeed = 0.2f;
@@ -44,6 +45,7 @@ public class Coffin : MonoBehaviour
         cruce3.SetActive(false);
         audio3.volume = currentAudio3Volume;
         imagineAfisata.SetActive(false);
+        animatieheart.SetActive(false);
     }
 
     void ToggleLuminaCruce()
@@ -68,8 +70,12 @@ public class Coffin : MonoBehaviour
 
         if (distance <= 5f)
         {
-            heart.transform.position = transform.position;
             isSinking = true;
+            animatieheart.SetActive(true);
+            //move the heart to coordonates 0,0,0
+            heart.transform.position = new Vector3(4, 0, 18);
+            
+            //Destroy(heart);
         }
 
         if (isSinking)
