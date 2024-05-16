@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public GameObject axeInScene; // Obiectul 'HRR_Axe_02' din scenă
     public float activationDistance = 5.0f; // Distanța la care obiectul din mână se activează
     private MeshRenderer renderer1;
+    public bool has_Axe = false;
+ 
 
     void Start()
     {
@@ -104,6 +106,7 @@ public class PlayerController : MonoBehaviour
                 if (renderer1 != null)
                 {
                     renderer1.enabled = true;
+                    has_Axe = true;
                 }
                 axeInScene.SetActive(false);
             }

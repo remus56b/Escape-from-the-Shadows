@@ -58,7 +58,10 @@ public class SecondTeleport : MonoBehaviour
         else
         { if (distance > 30f)
             {
-                crawler.SetActive(false);
+                if (crawler != null)
+                {
+                    crawler.SetActive(false);
+                }
             }
         }
     }

@@ -32,11 +32,14 @@ public class TakeDamage : MonoBehaviour
     {
         if (player != null && player.activeSelf && !isDamageEffectActive)
         {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, crawler.transform.position);
-            if (distanceToPlayer < 6.0f)
+            if (crawler != null)
             {
-                Debug.Log("start damage");
-                StartCoroutine(StartTakeDamageEffect()); 
+                float distanceToPlayer = Vector3.Distance(player.transform.position, crawler.transform.position);
+                if (distanceToPlayer < 6.0f)
+                {
+                    Debug.Log("start damage");
+                    StartCoroutine(StartTakeDamageEffect());
+                }
             }
         }
         else if (!player.activeSelf)
