@@ -14177,7 +14177,7 @@ MonoBehaviour:
   hpBar: {fileID: 188974699}
   medicine: {fileID: 442365658}
   maxDistance: 8
-  maxHealth: 10
+  maxHealth: 20
   rotationSpeed: 40
   levitateHeight: 1
   levitateSpeed: 1
@@ -47002,6 +47002,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a97475fd3727b42be14d067ad1116f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound1: {fileID: 2024923018}
+  sound2: {fileID: 366181448}
+  sound3: {fileID: 165341044}
+  sound4: {fileID: 890892132}
+  sound5: {fileID: 1308310521}
+  sound6: {fileID: 1471816096}
 --- !u!4 &1419694109
 Transform:
   m_ObjectHideFlags: 0
@@ -49177,7 +49183,7 @@ MonoBehaviour:
   crawler: {fileID: 1474373099}
   followSpeed: 2
   damageRate: 4
-  maxHealth: 100000
+  maxHealth: 20
   healthSlider: {fileID: 188974700}
   youDied: {fileID: 1499476016}
   medicine: {fileID: 442365658}

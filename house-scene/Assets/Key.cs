@@ -49,9 +49,10 @@ public class Key : MonoBehaviour
                 audio1.Play();
                 soundPlayed = true;
             }
-
-            door.SetActive(true);
-
+            if (door)
+            {
+                door.SetActive(true);
+            }
             // Verificăm dacă prefab-ul "crawler" există și nu a fost încă instanțiat
             if (crawlerPrefab != null && GameObject.FindWithTag("crawler") == null)
             {

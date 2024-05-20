@@ -48,8 +48,11 @@ public class SecondTeleport : MonoBehaviour
             if (destination2 != null)
             {
                 player.position = destination2.transform.position;
-                crawler.SetActive(false);
-                basemantObject.SetActive(false);
+                if (crawler)
+                {
+                    crawler.SetActive(false);
+                }
+                    basemantObject.SetActive(false);
                 renderer1 = axeInHand.GetComponent<MeshRenderer>();
                 renderer1.enabled = false;
 

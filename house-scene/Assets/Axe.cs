@@ -21,7 +21,7 @@ public class Axe : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && handsManager.has_Axe)
+        if (Input.GetKeyDown(KeyCode.Z) && handsManager.has_Axe && Crawler)
         {
             float distance = Vector3.Distance(transform.position, Crawler.transform.position);
             if (animator != null)
@@ -35,7 +35,7 @@ public class Axe : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); // Așteaptă 1 secundă
 
-            if (distance <= detectionRange)
+            if (distance <= detectionRange && Crawler)
             {
                 Debug.Log("Hit Crawler");
                 Enemy enemyScript = Crawler.GetComponent<Enemy>();
